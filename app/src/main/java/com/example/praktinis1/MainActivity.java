@@ -1,5 +1,6 @@
 package com.example.praktinis1;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -12,7 +13,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
-
+    boolean keitimas=false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
         });
         TextView textView = findViewById(R.id.textView2);
         Button button = findViewById(R.id.button3);
+        Button button2 = findViewById(R.id.button4);
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -34,6 +36,19 @@ public class MainActivity extends AppCompatActivity {
                 } else {
                     textView.setText("Pirminis tekstas");
                 }
+            }
+        });
+
+
+        button2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (keitimas) {
+                    textView.setTextColor(Color.RED);
+                } else {
+                    textView.setTextColor(Color.BLUE);
+                }
+                keitimas=!keitimas;
             }
         });
 
